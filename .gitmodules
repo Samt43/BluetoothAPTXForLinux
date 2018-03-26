@@ -1,0 +1,9 @@
+[submodule "openaptx"]
+	path = openaptx
+	url = git@github.com:Samt43/openaptx.git
+[submodule "bluez-alsa"]
+	path = bluez-alsa
+	url = git@github.com:Arkq/bluez-alsa.git
+[submodule "FFmpeg"]
+	path = FFmpeg
+	url = git@github.com:FFmpeg/FFmpeg.git
