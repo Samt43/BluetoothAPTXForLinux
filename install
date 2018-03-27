@@ -1,0 +1,6 @@
+#!/bin/bash
+cd openaptx
+sudo make install
+cd ..
+cd bluez-alsa
+sudo make install

@@ -1,0 +1,24 @@
+#!/bin/bash 
+echo "Building FFMepg with Aptx"
+cd FFmpeg
+./configure --disable-x86asm --enable-pic --disable-everything --enable-encoder=aptx --arch=x86_64 &&
+make -j4 &&
+mkdir -p ../openaptx/libavutil &&
+cp libavutil/*.h ../openaptx/libavutil &&
+cp libavutil/*.a ../openaptx/libavutil &&
+mkdir -p ../openaptx/libavcodec &&
+cp libavcodec/*.h ../openaptx/libavcodec &&
+cp libavcodec/*.a ../openaptx/libavcodec &&
+cd .. &&
+echo "Compiling openAptx with Aptx support" &&
+cd openaptx &&
+autoreconf --install &&
+./configure &&
+make &&
+cd .. &&
+echo "Compiling bluez-alsa" &&
+cd bluez-alsa
+autoreconf --install &&
+./configure --enable-aptx &&
+make &&
+echo "SUCCESS, you now have a bluez-alsa supporting aptx !"
